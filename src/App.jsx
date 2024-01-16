@@ -12,14 +12,8 @@ import Login, {action as loginAction, loader as loginLoader} from './pages/Login
 import Register, {action as registerAction, loader as registerLoader} from './pages/Register';
 import Dashboard, {loader as dashBoardLoader} from './pages/Dashboard';
 
-async function authenticationLoader() {
-
-  const rest = await fetch()
-
-}
-
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/user-authentication-sample">
+  <Route path="/user-authentication-sample/">
     <Route index element={<Home/>} />
     <Route 
       path='login' 
@@ -34,11 +28,11 @@ const router = createBrowserRouter(createRoutesFromElements(
       />
     <Route
       path='dashboard'
-      element={<Dashboard/>}
+      element={<Dashboard/>}biglang
       loader={dashBoardLoader}
     />
   </Route>
-))
+), {basname: "/user-authentication-sample/"})
 
 function App() {
   return (

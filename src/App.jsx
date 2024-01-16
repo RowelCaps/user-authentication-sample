@@ -19,7 +19,7 @@ async function authenticationLoader() {
 }
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route>
+  <Route path="/User-Authentication-Sample">
     <Route index element={<Home/>} />
     <Route 
       path='login' 

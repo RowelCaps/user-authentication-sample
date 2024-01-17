@@ -26,13 +26,13 @@ export async function action({request}){
         const data = await res.json(); 
 
         if(data.success){
-            return redirect('dashboard');
+            return redirect('/dashboard');
         }
         
-        return redirect(`register?message=${data.message}`);
+        return redirect(`/register?message=${data.message}`);
 
     } catch(err){
-        return redirect(`register?message=Internal Server Error`);
+        return redirect(`/register?message=Internal Server Error`);
     }
 }
 

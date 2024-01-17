@@ -2,7 +2,7 @@
 export async function isAuthenticated(){
 
     try{
-        const res = await fetch('http://localhost:3000/verify-authentication', {
+        const res = await fetch('https://user-authentication-sample.glitch.me/verify-authentication', {
             method:"get",
             credentials: 'include',
             headers: {'content-type': 'application/json'}

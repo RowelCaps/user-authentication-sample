@@ -11,7 +11,7 @@ export async function action({request}){
     }
     
     try{
-        const res = await fetch('http://localhost:3000/login', {
+        const res = await fetch('https://user-authentication-sample.glitch.me/login', {
             method:"post",
             credentials:'include',
             headers: {'content-type': 'application/json'},
@@ -21,21 +21,21 @@ export async function action({request}){
         const data = await res.json();
     
         if(data.success){
-            return redirect("/dashboard");
+            return redirect("dashboard");
         } else {
             
             switch(res.status){
                 case 400:
                 case 401:
                 case 402:
-                    return redirect("/login?message=Invalid Email or Password");
+                    return redirect("login?message=Invalid Email or Password");
                 default:
-                    return redirect("/login?message=Internal Server Error");
+                    return redirect("login?message=Internal Server Error");
             }
         }
 
     } catch (err){
-        return redirect("/login?message=Internal Server Error");
+        return redirect("login?message=Internal Server Error");
     }
 
     return null;

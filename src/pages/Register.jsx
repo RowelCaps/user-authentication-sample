@@ -26,7 +26,7 @@ export async function action({request}){
         const data = await res.json(); 
 
         if(data.success){
-            return redirect('dashboard');
+            return redirect('https://rowelcaps.github.io/user-authentication-sample/dashboard');
         }
         
         return redirect(`/register?message=${data.message}`);

@@ -21,21 +21,21 @@ export async function action({request}){
         const data = await res.json();
     
         if(data.success){
-            return redirect("/dashboard");
+            return redirect("/user-authentication-sample/dashboard");
         } else {
             
             switch(res.status){
                 case 400:
                 case 401:
                 case 402:
-                    return redirect("/login?message=Invalid Email or Password");
+                    return redirect("/user-authentication-sample/login?message=Invalid Email or Password");
                 default:
-                    return redirect("/login?message=Internal Server Error");
+                    return redirect("/user-authentication-sample/login?message=Internal Server Error");
             }
         }
 
     } catch (err){
-        return redirect("/login?message=Internal Server Error");
+        return redirect("/user-authentication-sample/login?message=Internal Server Error");
     }
 
     return null;

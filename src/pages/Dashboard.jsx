@@ -3,10 +3,11 @@ import {redirect, useLoaderData, useNavigate} from 'react-router-dom'
 import { isAuthenticated } from '../utility';
 
 export async function loader(){
+    
     const clientAuthenticated = await isAuthenticated();
 
     if(!clientAuthenticated){
-        return redirect("/login");
+        return redirect("/user-authentication-sample/login");
     }
     try{
         const res = await fetch('https://user-authentication-sample.glitch.me/user', {

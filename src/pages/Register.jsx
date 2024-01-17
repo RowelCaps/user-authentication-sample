@@ -12,7 +12,7 @@ export async function action({request}){
     };
 
     if(user.password != formData.get("confirmPassword")){
-        return redirect(`/register?message=Password does not match!`);
+        return redirect(`/user-authentication-sample/register?message=Password does not match!`);
     }
 
     try{
@@ -26,14 +26,14 @@ export async function action({request}){
         const data = await res.json(); 
 
         if(data.success){
-            return redirect('https://rowelcaps.github.io/user-authentication-sample/dashboard');
+            return redirect('/user-authentication-sample/dashboard');
         }
         
-        return redirect(`/register?message=${data.message}`);
+        return redirect(`/user-authentication-sample/register?message=${data.message}`);
 
     } catch(err){
         console.log(err);
-        return redirect(`/register?message=Internal Server Error`);
+        return redirect(`/user-authentication-sample/register?message=Internal Server Error`);
     }
 }
 

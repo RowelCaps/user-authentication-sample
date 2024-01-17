@@ -32,6 +32,7 @@ export async function action({request}){
         return redirect(`/register?message=${data.message}`);
 
     } catch(err){
+        console.log(err);
         return redirect(`/register?message=Internal Server Error`);
     }
 }

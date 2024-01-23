@@ -10,7 +10,7 @@ export async function loader(){
         return redirect("/user-authentication-sample/login");
     }
     try{
-        const res = await fetch('https://user-authentication-sample.glitch.me/user', {
+        const res = await fetch('https://https://user-authentication-server-1d8np71jj-rowelcaps-projects.vercel.app//user', {
             method:'get',
             credentials:'include',
             headers: {'content-type': 'application/json'}

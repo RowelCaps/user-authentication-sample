@@ -25,6 +25,8 @@ export async function action({request}){
 
         const data = await res.json(); 
 
+        console.log(data.message);
+
         if(data.success){
             return redirect('/user-authentication-sample/dashboard');
         }

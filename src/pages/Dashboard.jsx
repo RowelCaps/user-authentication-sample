@@ -4,6 +4,7 @@ import { isAuthenticated } from '../utility';
 
 export async function loader(){
     
+    console.log("dashboard enter");
     const clientAuthenticated = await isAuthenticated();
 
     if(!clientAuthenticated){

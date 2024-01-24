@@ -2,7 +2,7 @@
 export async function isAuthenticated(){
 
     try{
-        const res = await fetch('https://user-authentication-sample.glitch.me/verify-authentication', {
+        const res = await fetch('https://user-authentication-server.vercel.app//verify-authentication', {
             method:"get",
             credentials: 'include',
             headers: {'content-type': 'application/json'}

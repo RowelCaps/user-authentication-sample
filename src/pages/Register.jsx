@@ -16,7 +16,7 @@ export async function action({request}){
     }
 
     try{
-        const res = await fetch('https://user-authentication-server-1d8np71jj-rowelcaps-projects.vercel.app/register', {
+        const res = await fetch('https://user-authentication-server-8g67oktfk-rowelcaps-projects.vercel.app/register', {
             method:"post",
             credentials: 'include',
             headers: {'content-type': 'application/json'},

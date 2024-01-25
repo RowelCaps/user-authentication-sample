@@ -8,7 +8,7 @@ export async function loader(){
     const clientAuthenticated = await isAuthenticated();
 
     if(!clientAuthenticated){
-        return redirect("/user-authentication-sample/login");
+        return redirect("/login");
     }
     try{
         const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/user`, {
@@ -27,7 +27,7 @@ export async function loader(){
         }
     } catch(err){
         console.log(err);
-        return redirect("/user-authentication-sample/login");
+        return redirect("/login");
     }
 }
 
@@ -47,7 +47,7 @@ export default function Dashboard(){
             credentials: 'include',
             headers: {'content-type': 'application/json'}
         });
-        navigate('/user-authentication-sample/login');
+        navigate('/login');
     }
 
     return(

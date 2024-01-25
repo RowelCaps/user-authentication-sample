@@ -12,7 +12,7 @@ export async function action({request}){
     };
 
     if(user.password != formData.get("confirmPassword")){
-        return redirect(`/user-authentication-sample/register?message=Password does not match!`);
+        return redirect(`/register?message=Password does not match!`);
     }
 
     try{
@@ -28,14 +28,14 @@ export async function action({request}){
         console.log(data.message);
 
         if(data.success){
-            return redirect('/user-authentication-sample/dashboard');
+            return redirect('/dashboard');
         }
         
-        return redirect(`/user-authentication-sample/register?message=${data.message}`);
+        return redirect(`/register?message=${data.message}`);
 
     } catch(err){
         console.log(err);
-        return redirect(`/user-authentication-sample/register?message=Internal Server Error`);
+        return redirect(`/register?message=Internal Server Error`);
     }
 }
 

@@ -32,7 +32,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       loader={dashBoardLoader}
     />
   </Route>
-), {basname: "/user-authentication-sample/"})
+))
 
 function App() {
 

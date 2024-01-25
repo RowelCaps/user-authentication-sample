@@ -1,3 +1,12 @@
 [build]
   publish = "dist"
   command = "npm install && npm run build"
+  functions="functions"
+
+[[redirects]]
+    from ="/api/*"
+    to="/.netlify/functions/:splat"
+    status=200
+
+[functions]
+  node_bundler="esbuild"

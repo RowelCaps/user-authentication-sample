@@ -1,4 +1,4 @@
-import express from 'express';
+import express, {Router} from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import pg from 'pg';
@@ -6,12 +6,14 @@ import cors from 'cors';
 import jwt, { decode } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import cookieParser from 'cookie-parser';
+import serverless from "serverless-http"
 
 const SALT_HASH = 10;
 
 dotenv.config({path:'./.env'});
 
 const app = express();
+const router = Router();
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -37,11 +39,11 @@ db.connect()
     console.log(err);
 });
 
-app.get("/", function(req, res) {
+router.get("/", function(req, res) {
     return res.json({message: "Hello"});
 })
 
-app.post('/token', async function(req,res) {
+router.post('/token', async function(req,res) {
 
     const refreshToken = req.cookies.refreshToken;
 
@@ -80,7 +82,7 @@ app.post('/token', async function(req,res) {
     }
 });
 
-app.get('/verify-authentication', async function(req, res) {
+router.get('/verify-authentication', async function(req, res) {
 
     const accessToken = req.cookies.accessToken;
 
@@ -99,7 +101,7 @@ app.get('/verify-authentication', async function(req, res) {
     }
 });
 
-app.post("/login", async function(req, res) {
+router.post("/login", async function(req, res) {
 
     console.log("fuck yeah");
 
@@ -149,7 +151,7 @@ app.post("/login", async function(req, res) {
     }
 });
 
-app.post("/register", async function(req, res) {
+router.post("/register", async function(req, res) {
 
     const userData = {
         name: req.body.name,
@@ -210,7 +212,7 @@ app.post("/register", async function(req, res) {
 
 
 
-app.get("/user", async function(req, res) {
+router.get("/user", async function(req, res) {
 
     const accessToken = req.cookies.accessToken;
 
@@ -226,11 +228,11 @@ app.get("/user", async function(req, res) {
     });
 });
 
-app.get("/testServer", async function(req,res) {
+router.get("/testServer", async function(req,res) {
     return res.json({message: "server is live"});
   });
 
-app.post('/logout', async function(req,res){
+router.post('/logout', async function(req,res){
     const refreshToken = req.cookies.refreshToken;
 
     const hashedToken = await bcrypt.hash(refreshToken, SALT_HASH);
@@ -293,6 +295,10 @@ async function refreshAccessTokens(req, res){
     }
 }
 
-app.listen(process.env.SERVER_PORT, () => {
-    console.log(`Listening to PORT ${process.env.SERVER_PORT}`);
-})
+app.use("/api/", router);
+
+// app.listen(process.env.SERVER_PORT, () => {
+//     console.log(`Listening to PORT ${process.env.SERVER_PORT}`);
+// })
+
+export const handler = serverless(app);

@@ -13,12 +13,6 @@ dotenv.config({path:'./.env'});
 
 const app = express();
 
-app.use(cors({
-    origin: process.env.ORIGIN_URL,
-    methods: "GET, POST, PUT, DELETE",
-    credentials: true
-}));
-
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

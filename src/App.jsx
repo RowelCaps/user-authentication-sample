@@ -35,6 +35,9 @@ const router = createBrowserRouter(createRoutesFromElements(
 ), {basname: "/user-authentication-sample/"})
 
 function App() {
+
+  console.log(`${import.meta.env.VITE_REACT_API_SERVER_URL}/login`);
+
   return (
     <RouterProvider router={router} />
   )

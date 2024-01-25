@@ -16,7 +16,7 @@ export async function action({request}){
     }
 
     try{
-        const res = await fetch('https://user-authentication-server.vercel.app/register', {
+        const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/register`, {
             method:"post",
             credentials: 'include',
             headers: {'content-type': 'application/json'},

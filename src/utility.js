@@ -2,8 +2,9 @@
 export async function isAuthenticated(){
 
     try{
-        const res = await fetch('https://user-authentication-server.vercel.app/verify-authentication', {
+        const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/verify-authentication`, {
             method:'GET',
+            credentials: 'include',
             headers: {'content-type': 'application/json'}
         });
 

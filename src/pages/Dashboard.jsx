@@ -11,7 +11,7 @@ export async function loader(){
         return redirect("/user-authentication-sample/login");
     }
     try{
-        const res = await fetch('https://user-authentication-server.vercel.app/user', {
+        const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/user`, {
             method:'get',
             credentials:'include',
             headers: {'content-type': 'application/json'}
@@ -27,7 +27,7 @@ export async function loader(){
         }
     } catch(err){
         console.log(err);
-        return redirect("/login");
+        return redirect("/user-authentication-sample/login");
     }
 }
 
@@ -42,12 +42,12 @@ export default function Dashboard(){
         console.log("logging out");
         setLoggintOut(true);
 
-        const res = await fetch('https://user-authentication-server.vercel.app/logout', {
+        const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/logout`, {
             method: 'post',
             credentials: 'include',
             headers: {'content-type': 'application/json'}
         });
-        navigate('/login');
+        navigate('/user-authentication-sample/login');
     }
 
     return(

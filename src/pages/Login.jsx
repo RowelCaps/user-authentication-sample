@@ -9,7 +9,8 @@ export async function action({request}){
         email: formData.get('email'),
         password: formData.get('password')
     }
-    
+    console.log(`${import.meta.env.VITE_REACT_API_SERVER_URL}/login`);
+
     try{
         const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/login`, {
             method:"post",

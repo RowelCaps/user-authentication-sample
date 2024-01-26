@@ -35,7 +35,7 @@ export async function action({request}){
         }
 
     } catch (err){
-        return redirect("/login?message=Internal Server Error");
+        return redirect("/login?message=Could not connect to server Error");
     }
 
     return null;

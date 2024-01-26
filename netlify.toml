@@ -1,12 +1,14 @@
+
+[functions]
+  external_node_modules = ["express"]
+  node_bundler="esbuild"
+  
 [build]
-  publish = "dist"
   command = "npm install && npm run build"
   functions="functions"
 
 [[redirects]]
+    force=true
     from ="/api/*"
-    to="/.netlify/functions/:splat"
+    to="/.netlify/functions/api/:splat"
     status=200
-
-[functions]
-  node_bundler="esbuild"

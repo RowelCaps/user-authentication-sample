@@ -295,7 +295,7 @@ async function refreshAccessTokens(req, res){
     }
 }
 
-app.use("/.netlify/functions/api", router);
+app.use("/api/", router);
 
 // app.listen(process.env.SERVER_PORT, () => {
 //     console.log(`Listening to PORT ${process.env.SERVER_PORT}`);

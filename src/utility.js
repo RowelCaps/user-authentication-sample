@@ -3,7 +3,7 @@ export async function isAuthenticated(){
 
     try{
         const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/verify-authentication`, {
-            method:'GET',
+            method:'post',
             credentials: 'include',
             headers: {'content-type': 'application/json'}
         });

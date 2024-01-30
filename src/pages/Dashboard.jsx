@@ -51,7 +51,7 @@ export default function Dashboard(){
             credentials: 'include',
             headers: {'content-type': 'application/json'}
         });
-        navigate('/login');
+        navigate('/user-authentication-client/login');
     }
 
     return(

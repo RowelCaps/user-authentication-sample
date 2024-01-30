@@ -27,7 +27,7 @@ export async function loader(){
             return data.userData;
         } else {
             console.log("oh no");
-            return null;
+            return redirect("/user-authentication-client/login");
         }
     } catch(err){
         console.log(err);

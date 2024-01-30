@@ -8,7 +8,7 @@ export async function loader(){
     const clientAuthenticated = await isAuthenticated();
 
     if(!clientAuthenticated){
-        return redirect("/login");
+        return redirect("/user-authentication-client/login");
     }
     try{
         const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/user`, {
@@ -27,7 +27,7 @@ export async function loader(){
         }
     } catch(err){
         console.log(err);
-        return redirect("/login");
+        return redirect("/user-authentication-client/login");
     }
 }
 

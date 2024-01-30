@@ -23,7 +23,7 @@ export async function loader(){
             return data.userData;
         } else {
             console.log("oh no");
-            return false;
+            return null;
         }
     } catch(err){
         console.log(err);

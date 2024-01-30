@@ -10,6 +10,9 @@ export async function loader(){
     if(!clientAuthenticated){
         return redirect("/user-authentication-client/login");
     }
+    
+    console.log("dashboard enter2");
+
     try{
         const res = await fetch(`${import.meta.env.VITE_REACT_API_SERVER_URL}/user`, {
             method:'get',
@@ -20,6 +23,7 @@ export async function loader(){
         const data = await res.json();
     
         if(data.success){
+            console.log("dashboard enter3");
             return data.userData;
         } else {
             console.log("oh no");

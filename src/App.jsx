@@ -13,7 +13,7 @@ import Register, {action as registerAction, loader as registerLoader} from './pa
 import Dashboard, {loader as dashBoardLoader} from './pages/Dashboard';
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route>
+  <Route path='/user-authentication-client'>
     <Route index element={<Home/>} />
     <Route 
       path='login' 
